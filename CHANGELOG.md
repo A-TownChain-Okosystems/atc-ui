@@ -1,8 +1,6 @@
-# Changelog — ATC Dashboard
+# Changelog — atc-ui
 
-## Letzte Versionen
+## v3.0.0 — 10.06.2026
+Vollständiger Changelog: https://github.com/A-TownChain-Okosystems/a-townchain-os/blob/main/CHANGELOG.md
 
-- v2.1.0: Neon-Design, Gemini-Chat, Shivamon-Gallery
-- v2.0.0: Grundstruktur initial
-
-Vollständiger Changelog: [a-townchain-os/docs/CHANGELOG.md](https://github.com/A-TownChain-Okosystems/a-townchain-os/blob/main/docs/CHANGELOG.md)
+### Relevante Fixes
