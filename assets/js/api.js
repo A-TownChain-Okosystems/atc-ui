@@ -1,3 +1,4 @@
+// Copyright (c) 2026 Michael Wroblewski / ShivaCore / A-TownChain-Okosystems. All Rights Reserved.
 /**
  * A-TownChain OS — Frontend API Client v2.0.0
  * Spricht ausschließlich mit dem Gateway (Port 4000).
