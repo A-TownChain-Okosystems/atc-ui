@@ -6,53 +6,87 @@
 > 2. [`AGENT_COORDINATION.md`](https://github.com/A-TownChain-Okosystems/a-townchain-os-docs/blob/main/docs/AGENT_COORDINATION.md) — wer arbeitet gerade woran, Todos, Agent-IDs
 > 3. [`DECISIONS_REGISTER.md`](https://github.com/A-TownChain-Okosystems/a-townchain-os-docs/blob/main/docs/DECISIONS_REGISTER.md) — verbindliche Architektur-Entscheidungen
 
-
-> **Neon Dashboard: Wallet, Explorer, Shivamon, AI Chat**
+> **Neon Design System & Reusable UI Components für KAI-OS**
 
 [![Layer](https://img.shields.io/badge/Layer-L10-purple)](https://github.com/A-TownChain-Okosystems)
-[![KAI-OS](https://img.shields.io/badge/KAI--OS-v2.0.0-blue)](https://github.com/A-TownChain-Okosystems/a-townchain-os/blob/main/docs/kai-os-wiki.md)
+[![KAI-OS](https://img.shields.io/badge/KAI--OS-v2.0.0-blue)](https://github.com/A-TownChain-Okosystems/a-townchain-os-docs)
 [![Org](https://img.shields.io/badge/Org-A--TownChain--Okosystems-green)](https://github.com/A-TownChain-Okosystems)
 [![Wiki](https://img.shields.io/badge/Wiki-📖-blue)](https://github.com/A-TownChain-Okosystems/atc-ui-wiki)
 
 ---
 
-## 📦 Teil des A-TownChain Ökosystems
+## 📖 Beschreibung
 
-**Org:** [A-TownChain-Okosystems](https://github.com/A-TownChain-Okosystems)
-**Haupt-Repo:** [a-townchain-os](https://github.com/A-TownChain-Okosystems/a-townchain-os)
-**KAI-OS Wiki (69 Kapitel):** [→ docs/kai-os-wiki.md](https://github.com/A-TownChain-Okosystems/a-townchain-os/blob/main/docs/kai-os-wiki.md)
-**Alle Repos:** [→ ECOSYSTEM.md](https://github.com/A-TownChain-Okosystems/a-townchain-os/blob/main/ECOSYSTEM.md)  |  [Repo-Wiki](https://github.com/A-TownChain-Okosystems/atc-ui-wiki)
+Das Repository **atc-ui** liefert die zentralen UI-Komponenten, das Neon Design System sowie vorgefertigte Application Shells (`DesktopApp.tsx`, `LoginOverlay.tsx`) für Anwendungen im A-TownChain OS Ökosystem.
 
 ---
 
-## 🔗 Abhängigkeiten
+## 🏗️ Architektur
 
-**Nutzt:** [atc-gateway](https://github.com/A-TownChain-Okosystems/atc-gateway)
+atc-ui ist als modular wiederverwendbare Komponenten-Bibliothek aufgebaut. Sie stellt konsistente Themes, Cyberpunk/Neon UI Controls und Authentifizierungs-Dialoge bereit:
 
-**Wird genutzt von:**
-— (End-Modul)
+```
++-------------------------------------------------------+
+|                    atc-ui (L10)                       |
+|  +-------------------+  +--------------------------+  |
+|  | DesktopApp Shell  |  | LoginOverlay & Auth      |  |
+|  +-------------------+  +--------------------------+  |
+|  | Neon Design System|  | Custom Inputs & Buttons  |  |
+|  +-------------------+  +--------------------------+  |
++-------------------------------------------------------+
+```
 
 ---
 
-## 🗺️ Alle Repos
+## 🧩 Komponenten
+
+- **`DesktopApp.tsx` / `index.html`**: Universelle Desktop Application Container Shell mit Window Management und Navigation Drawer.
+- **`LoginOverlay.tsx`**: Modaler Authentifizierungs-Overlays-Dialog mit Wallet-Login, Biometric-Prompt und Seed-Phrase Verification.
+- **`assets/js/api.js`**: Standardisierter API Consumer für UI-Komponenten.
+- **`DESIGN.md`**: Design-Guidelines, Farbpaletten (Neon Cyan `#00f3ff`, Neon Pink `#ff0055`, Dark Slate `#0a0e1a`) und Typografie-Regeln.
+
+---
+
+## 🚀 Usage
+
+Einbinden der UI-Komponenten in Frontend-Projekte oder direktes Hosting der Standalone-UI Demo:
+
+```bash
+# Statischen Demo-Server starten
+python3 -m http.server 8080
+
+# Im Browser aufrufen
+open http://localhost:8080
+```
+
+---
+
+## 🛠️ Build & Installation
+
+```bash
+# Repo klonen
+git clone https://github.com/A-TownChain-Okosystems/atc-ui.git
+cd atc-ui
+
+# Entwicklungs-Vorschau starten
+python3 -m http.server 8080
+```
+
+---
+
+## 🗺️ Verwandte Repos
 
 | Repo | Layer | Beschreibung |
 |------|-------|-------------|
-| [a-townchain-os](https://github.com/A-TownChain-Okosystems/a-townchain-os) | `L2–L4` | Einziges Haupt-Repo — KAI-OS Core, AI, Blockchain |
-| [atc-kernel](https://github.com/A-TownChain-Okosystems/atc-kernel) | `L2` | ShivaOS Microkernel, IPC, ATCFS, Consensus |
-| [atcnet](https://github.com/A-TownChain-Okosystems/atcnet) | `L5` | P2P Netzwerk-Stack, Kademlia DHT, Bootstrap Node |
-| [atc-gateway](https://github.com/A-TownChain-Okosystems/atc-gateway) | `L7` | API Gateway :4000, Circuit-Breaker, Rate-Limit |
-| [atclang](https://github.com/A-TownChain-Okosystems/atclang) | `L2–L4` | ATCLang v0.3.0, proprietäre Sprache (Lexer, Parser, VM) |
-| [atc-contracts](https://github.com/A-TownChain-Okosystems/atc-contracts) | `L4/L11` | Smart Contracts: ATC-8300, ATC-9000, ATC-9900, Bridge |
-| [atc-shivamon](https://github.com/A-TownChain-Okosystems/atc-shivamon) | `L12` | NFT Gaming: Battle Engine, Breeding, Marketplace |
-| [atc-franchise](https://github.com/A-TownChain-Okosystems/atc-franchise) | `L10/L8` | Business DAO: Vault, Revenue-Share, Royalty (ATC-9900) |
-| [atc-ui](https://github.com/A-TownChain-Okosystems/atc-ui) | `L10` | Neon Dashboard: Wallet, Explorer, Shivamon, AI Chat |
-| [atc-standards](https://github.com/A-TownChain-Okosystems/atc-standards) | `L0` | Protokoll-Standards: ATC-0001–0009 + ATS-1000–1007 |
-| [atc-whitepaper](https://github.com/A-TownChain-Okosystems/atc-whitepaper) | `L0` | Offizielles Whitepaper v2.1.0 |
+| [atc-frontend](https://github.com/A-TownChain-Okosystems/atc-frontend) | `L10` | React/TS Desktop UI & Dashboard |
+| [atc-wallet](https://github.com/A-TownChain-Okosystems/atc-wallet) | `L10` | Wallet Application UI |
+| [atc-explorer](https://github.com/A-TownChain-Okosystems/atc-explorer) | `L10` | Block Explorer UI |
 
 ---
 
-*[A-TownChain-Okosystems](https://github.com/A-TownChain-Okosystems) · v2.0.0 · Stand: 2026-08-05*
+## 📖 Wiki
+
+Dokumentation und Komponentenspezifikationen finden Sie im [atc-ui-wiki](https://github.com/A-TownChain-Okosystems/atc-ui-wiki).
 
 ---
 
@@ -60,8 +94,7 @@
 
 Copyright (c) 2026 Michael Wroblewski / ShivaCore / A-TownChain-Okosystems. **All Rights Reserved.**
 
-Dieses Projekt nutzt das **ATC-LIC Lizenzmodell** — ein monetarisiertes, autonomes
-Open-Source-Oekosystem. Unlizenzierter Code wird von der ATVM physisch nicht ausgefuehrt.
+Dieses Projekt nutzt das **ATC-LIC Lizenzmodell** — ein monetarisiertes, autonomes Open-Source-Oekosystem. Unlizenzierter Code wird von der ATVM physisch nicht ausgefuehrt.
 
 - [ATC-LIC — Smart Contract Licenses](https://github.com/A-TownChain-Okosystems/a-townchain-os-docs/blob/main/docs/standards/ATC-LIC-SMART_CONTRACT_LICENSE.md)
 - [ATS-LIC — System & Hardware Licenses](https://github.com/A-TownChain-Okosystems/a-townchain-os-docs/blob/main/docs/standards/ATS-LIC-SYSTEM_HARDWARE_LICENSE.md)
