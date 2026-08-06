@@ -1,51 +1,44 @@
-# 🌳 Architektur — atc-ui
+# ARCHITECTURE.md — atc-ui
+> Copyright © Michael Wroblewski / A-TownChain-Okosystems. All Rights Reserved.
 
-> **Stand:** 2026-08-06 | **Commit:** be9c1f7
-> **Teil von:** [A-TownChain Ökosystem](https://github.com/A-TownChain-Okosystems)
-
-## Statistik
-
-| Metrik | Wert |
-|--------|------|
-| Dateien | 23 |
-| Zeilen | 4,285 |
-| .atc | 0 |
-| .py | 0 |
-| .rs | 0 |
-| .ts/.tsx | 13 |
-| .md | 6 |
-
-## Verzeichnisstruktur
-
-```
-├── assets/ (1 files, 99 lines)
-│   └── js/ (1 files, 99 lines)
-│       └── api.js (99 lines)
-├── src/ (13 files, 3,984 lines)
-│   └── components/ (13 files, 3,984 lines)
-│       ├── ATownDashboardView.tsx (302 lines)
-│       ├── AtsSuite.tsx (51 lines)
-│       ├── ConsensusIntegrationGuide.tsx (1528 lines)
-│       ├── DeFiLiquidityPoolView.tsx (255 lines)
-│       ├── GitHubStatusDashboard.tsx (643 lines)
-│       ├── MetricsDashboard.tsx (105 lines)
-│       ├── OfficeSuiteView.tsx (271 lines)
-│       ├── ProjectAuditDashboard.tsx (135 lines)
-│       ├── SyncDashboardModal.tsx (88 lines)
-│       ├── SystemHealthDashboard.tsx (246 lines)
-│       ├── SystemHealthDashboardWidget.tsx (63 lines)
-│       ├── TerminalView.tsx (189 lines)
-│       └── ZkCircuitEditorView.tsx (108 lines)
-├── .gitignore
-├── CHANGELOG.md (6 lines)
-├── DESIGN.md (33 lines)
-├── FILE_REGISTER.md (21 lines)
-├── LICENSE
-├── README.md (102 lines)
-├── ROADMAP.md (21 lines)
-├── STATUS.md (19 lines)
-└── index.html
+## File Tree
+```tree
+atc-ui/
+├── index.html                # Entry web application HTML template
+├── DESIGN.md                 # UI design system guidelines and component tokens
+├── assets/                   # Static media, icons, and client scripts
+│   └── js/
+│       └── api.js            # Frontend REST API client
+└── src/                      # React frontend component library
+    └── components/           # UI dashboards, terminal view, zk circuit editor
+        ├── ATownDashboardView.tsx
+        ├── AtsSuite.tsx
+        ├── ConsensusIntegrationGuide.tsx
+        ├── DeFiLiquidityPoolView.tsx
+        ├── GitHubStatusDashboard.tsx
+        ├── MetricsDashboard.tsx
+        ├── OfficeSuiteView.tsx
+        ├── ProjectAuditDashboard.tsx
+        ├── SyncDashboardModal.tsx
+        ├── SystemHealthDashboard.tsx
+        ├── TerminalView.tsx
+        └── ZkCircuitEditorView.tsx
 ```
 
----
-*Auto-generiert 2026-08-06 · Aurora (MasterBrain · Base44)*
+## Module Descriptions
+- index.html — HTML5 single page application entry host
+- DESIGN.md — Specification of color palettes, typography, and widget interfaces
+- assets/js/api.js — Client API helper library
+- src/components/ATownDashboardView.tsx — Main portal dashboard component
+- src/components/SystemHealthDashboard.tsx — Real-time node and telemetry health viewer
+- src/components/TerminalView.tsx — Web-based interactive command-line terminal
+- src/components/ZkCircuitEditorView.tsx — Visual editor for zero-knowledge circuits
+
+## Build System
+- Vite / npm
+
+## Dependencies
+- Node.js, React, TypeScript
+
+## Status (Active/Migrated/Legacy)
+Migrated to a-townchain-os / Legacy repo
